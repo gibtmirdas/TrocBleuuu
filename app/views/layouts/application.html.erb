@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TrocBleuuu</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div id="wrapper">
+      <div id="header"><%= render 'layouts/header' %></div>
+      <div id="content">
+        <div id="content-spacer-top"></div>
+        <div id="content-inner">
+          <%= yield %>
+        </div>
+      </div>
+      <div id="divFooter"><%= render 'layouts/footer' %></div>
+    </div>
+</body>
+</html>

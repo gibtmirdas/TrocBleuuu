@@ -1,0 +1,4 @@
+<%= drop_down "#{user.email}"  do %>
+    <%= menu_item 'Compte' %>
+    <%= menu_item 'Déconnexion',destroy_user_session_path(),:method => :delete %>
+<% end %>
