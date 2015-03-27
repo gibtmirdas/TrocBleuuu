@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @offre.title %>
+</p>
+
+<p>
+  <strong>Descr:</strong>
+  <%= @offre.descr %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @offre.price %>
+</p>
+
+<%= link_to 'Edit', edit_offre_path(@offre) %> |
+<%= link_to 'Back', offres_path %>

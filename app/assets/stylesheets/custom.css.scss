@@ -17,13 +17,20 @@ html, body {
   left:0;
   top:0;
 }
-#content {
+#content-home {
   margin:0 auto -20px;
   min-height:100%;
   height:auto !important;
   height:80%;
   background-size: 100%;
   background: image_url('perso/EU-Bucketlist-Cover-Photo.jpeg') no-repeat center;
+}
+#content-logged {
+  margin:0 auto -20px;
+  min-height:100%;
+  height:auto !important;
+  height:80%;
+  background-size: 100%;
 }
 #content-spacer-top {
   height:50px;
@@ -54,6 +61,8 @@ td{
   margin-left: auto;
   margin-right: 30%;
   margin-top: 10px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 5px;
 }
 
 .register-container tbody {
@@ -62,7 +71,5 @@ td{
 
 .register-container td {
   background-color: rgba(0, 0, 0, 0) !important;
-}
-.register-container tr {
-  margin-bottom: 2px !important;
+  padding: 1px 5px;
 }
