@@ -1,4 +1,4 @@
-/******************************/
+/** Layout + navbar **/
 html, body {
   height: 100%;
   margin:0;
@@ -33,14 +33,36 @@ html, body {
   height: 150px;
 }
 
-.navbar .navbar-nav > li > a {
-  height: 50px;
-}
-
 .nav-collapse {
   margin-left: 20em;
 }
 
 td{
   vertical-align: text-bottom;
+}
+
+.navbar-nav li a, .navbar-align {
+  line-height: 25px;
+}
+
+.navbar .navbar-nav > li > a {
+  height: 50px;
+}
+
+/** Register **/
+.register-container{
+  margin-left: auto;
+  margin-right: 30%;
+  margin-top: 10px;
+}
+
+.register-container tbody {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.register-container td {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.register-container tr {
+  margin-bottom: 2px !important;
 }

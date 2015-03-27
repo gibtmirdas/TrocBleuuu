@@ -4,17 +4,15 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">TrocBleûûû</a>
+      <!--<a class="navbar-brand" href="">TrocBleûûû</a>-->
+      <%= link_to 'TrocBleûûû','home#main', :class => 'navbar-brand navbar-align' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <%if current_user%>
+      <!%if current_user%>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Mes offres <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Historique</a></li>
@@ -29,7 +27,7 @@
           </ul>
         </li>
       </ul>
-      <%end%>
+      <!%end%>
       <ul class="nav navbar-nav navbar-right">
         <%if current_user%>
             <li class="dropdown">
@@ -43,7 +41,14 @@
               </ul>
             </li>
         <%else%>
-            <li><a href="#">LogIn</a></li>
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Connection<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= render 'user/sessions/logIn', :user => @user %></li>
+                </ul>
+              </li>
+            </ul>
         <%end%>
       </ul>
     </div><!-- /.navbar-collapse -->

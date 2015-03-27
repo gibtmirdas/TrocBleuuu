@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20150325204019) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "username"
     t.text     "street"
     t.integer  "npa"
     t.string   "commune"
     t.string   "phone"
-    t.string   "firstname"
-    t.string   "lastname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
