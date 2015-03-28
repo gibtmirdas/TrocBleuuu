@@ -43,3 +43,5 @@ gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 
 gem 'devise'
+
+gem 'better_errors'
