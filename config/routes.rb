@@ -1,9 +1,33 @@
 Rails.application.routes.draw do
   resources :offres
+  # resources :users
+  # devise_for :users, skip: [:sessions, :registrations], :controllers => {
+  #   :sessions => 'sessions',
+  #   :omniauth_callbacks => 'omniauth_callbacks',
+  #   :passwords => 'passwords',
+  #   :registrations => 'registrations'} do
+  # end
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
 
-  devise_for :users
+  # devise_for :users
 
-  root 'home#main'
+  devise_scope :user do
+    # get   '/users/sign_in'  => 'devise/sessions#new',  as: :new_user_session
+    # post   '/users/sign_in'  => 'devise/sessions#create',  as: :user_session
+    # delete '/users/sign_out' => 'devise/sessions#destroy', as: :destroy_user_session
+    #
+    # get   '/users/sign_up'  => 'devise/registrations#new',  as: :new_user_registration
+    # post   '/users/sign_up'  => 'devise/registrations#create',  as: :user_registration
+    #
+    # put   '/users/password'  => 'devise/passwords#update', as: nil
+    # patch '/users/password'  => 'devise/passwords#update', as: nil
+    authenticated :user do
+      root :to => 'offres#index', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

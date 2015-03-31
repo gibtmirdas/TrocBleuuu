@@ -6,13 +6,13 @@
         <span class="sr-only">Toggle navigation</span>
       </button>
       <!--<a class="navbar-brand" href="">TrocBleûûû</a>-->
-      <%= link_to 'TrocBleûûû','home#main', :class => 'navbar-brand navbar-align' %>
+      <%= link_to 'TrocBleûûû','/', :class => 'navbar-brand navbar-align' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <!%if current_user%>
+      <%if current_user%>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Mes offres <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Historique</a></li>
@@ -27,13 +27,13 @@
           </ul>
         </li>
       </ul>
-      <!%end%>
+      <%end%>
       <ul class="nav navbar-nav navbar-right">
         <%if current_user%>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <%= current_user.email%> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Profile</a></li>
+                <li><%= link_to('Profile', edit_user_registration_path) %></li>
                 <li class="divider"></li>
                 <li><%= link_to('Deconnection', destroy_user_session_path, :method => :delete) %></li>
               </ul>

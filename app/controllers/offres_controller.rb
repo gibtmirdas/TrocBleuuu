@@ -4,7 +4,7 @@ class OffresController < ApplicationController
   respond_to :html
 
   def index
-    @offres = Offre.all
+    @offres = Offre.search(params[:search])
     respond_with(@offres)
   end
 
@@ -34,6 +34,11 @@ class OffresController < ApplicationController
   def destroy
     @offre.destroy
     respond_with(@offre)
+  end
+
+  def mine
+    @offres = current_user.offres
+    respond_with(@offres)
   end
 
   private
