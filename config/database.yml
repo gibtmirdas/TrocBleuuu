@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: troc
-  password: TrocTroc
+  username: root
+  password: spa7tage
   host: localhost
 
 development:
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: TrocBleuuu_production
-  username: TrocBleuuu
+  username: root
   password: <%= ENV['TROCBLEUUU_DATABASE_PASSWORD'] %>
