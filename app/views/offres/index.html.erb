@@ -1,29 +1,31 @@
-<h1>Listing offres</h1>
+<div class="row">
+  <div class="col-md-1">&NonBreakingSpace;</div>
+  <div class="col-md-7">
+    <h3>Les offres près de chez moi !</h3>
+    <div class='search-offre'>
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-zoom-in"></span></span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+      </div>
+      <%= form_tag offres_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+      <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Descr</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @offres.each do |offre| %>
-      <tr>
-        <td><%= offre.title %></td>
-        <td><%= offre.descr %></td>
-        <td><%= offre.price %></td>
-        <td><%= link_to 'Show', offre %></td>
-        <td><%= link_to 'Edit', edit_offre_path(offre) %></td>
-        <td><%= link_to 'Destroy', offre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Offre', new_offre_path %>
+
+    </div>
+    <table class='offer-container'>
+      <tbody>
+      <% @offres.each do |offre| %>
+          <tr><td>
+            <%= render 'offres/offre_home', :offre => offre %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <!--<div class="col-md-4"><!%= link_to 'New Offre', new_offre_path, :class => 'btn btn-success btn-lg' %></div>-->
+</div>

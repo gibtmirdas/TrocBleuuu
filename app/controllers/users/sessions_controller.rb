@@ -2,14 +2,16 @@ class User::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+    puts "aaaa"
+  end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    p "aaaa"
+  end
 
   # DELETE /resource/sign_out
   # def destroy

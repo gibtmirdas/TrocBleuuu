@@ -1,0 +1,12 @@
+<table class='offre-home'>
+  <tr>
+    <td>
+      <%= image_tag('perso/200px-Secateur_ouvert.jpeg', height: 50) %>
+    </td>
+    <td>
+      <b><%= offre.title %></b><br/> <%= offre.descr %>
+    </td>
+    <td><%- if offre.price == 0 %> Gratuit <% else  %><%= offre.price %> CHF <% end -%></td>
+    <td align="right"><%= link_to 'Consulter', offre, :class => 'btn btn-success' %></td>
+  </tr>
+</table>

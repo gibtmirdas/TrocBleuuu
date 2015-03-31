@@ -45,3 +45,4 @@ gem 'font-awesome-rails'
 gem 'devise'
 
 gem 'better_errors'
+gem 'omniauth'
