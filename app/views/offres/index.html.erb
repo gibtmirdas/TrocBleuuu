@@ -11,21 +11,13 @@
             <%= text_field_tag :search, params[:search] %>
             <%= submit_tag "Search", :name => nil %>
       <% end %>
-
-
-
-
-
     </div>
-    <table class='offer-container'>
-      <tbody>
+    <table class='offer-container table'>
+      <tbody class='offre-home'>
       <% @offres.each do |offre| %>
-          <tr><td>
-            <%= render 'offres/offre_home', :offre => offre %></td>
-          </tr>
+            <%= render 'offres/offre_home', :offre => offre %>
       <% end %>
       </tbody>
     </table>
   </div>
-  <!--<div class="col-md-4"><!%= link_to 'New Offre', new_offre_path, :class => 'btn btn-success btn-lg' %></div>-->
 </div>

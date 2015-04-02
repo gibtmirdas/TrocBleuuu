@@ -1,0 +1,33 @@
+<h1>Listing contrats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>Offre</th>
+      <th>Offreur</th>
+      <th>Demandeur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contrats.each do |contrat| %>
+      <tr>
+        <td><%= contrat.startDate %></td>
+        <td><%= contrat.endDate %></td>
+        <td><%= contrat.offre_id %></td>
+        <td><%= contrat.offreur_id %></td>
+        <td><%= contrat.demandeur_id %></td>
+        <td><%= link_to 'Show', contrat %></td>
+        <td><%= link_to 'Edit', edit_contrat_path(contrat) %></td>
+        <td><%= link_to 'Destroy', contrat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contrat', new_contrat_path %>

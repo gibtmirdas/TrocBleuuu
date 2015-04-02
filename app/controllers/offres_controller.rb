@@ -1,6 +1,6 @@
 class OffresController < ApplicationController
   before_action :set_offre, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!, :prepare_categories
   respond_to :html
 
   def index
@@ -13,7 +13,7 @@ class OffresController < ApplicationController
   end
 
   def new
-    @offre = Offre.new
+    @offre = current_user.offres.new
     respond_with(@offre)
   end
 
@@ -21,7 +21,7 @@ class OffresController < ApplicationController
   end
 
   def create
-    @offre = Offre.new(offre_params)
+    @offre = current_user.offres.new(offre_params)
     @offre.save
     respond_with(@offre)
   end
@@ -42,11 +42,15 @@ class OffresController < ApplicationController
   end
 
   private
-    def set_offre
-      @offre = Offre.find(params[:id])
-    end
+  def set_offre
+    @offre = Offre.find(params[:id])
+  end
 
-    def offre_params
-      params.require(:offre).permit(:title, :descr, :price)
-    end
+  def prepare_categories
+    @categories = Category.all
+  end
+
+  def offre_params
+    params.require(:offre).permit(:title, :descr, :price, :image)
+  end
 end

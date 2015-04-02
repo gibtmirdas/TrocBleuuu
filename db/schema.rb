@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328141045) do
+ActiveRecord::Schema.define(version: 20150402092651) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contrats", force: true do |t|
+    t.datetime "startDate"
+    t.datetime "endDate"
+    t.integer  "offre_id"
+    t.integer  "offreur_id"
+    t.integer  "demandeur_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contrats", ["demandeur_id"], name: "index_contrats_on_demandeur_id", using: :btree
+  add_index "contrats", ["offre_id"], name: "index_contrats_on_offre_id", using: :btree
+  add_index "contrats", ["offreur_id"], name: "index_contrats_on_offreur_id", using: :btree
 
   create_table "offres", force: true do |t|
     t.string   "title"
@@ -20,6 +40,11 @@ ActiveRecord::Schema.define(version: 20150328141045) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "category_id"
   end
 
   add_index "offres", ["user_id"], name: "index_offres_on_user_id", using: :btree

@@ -46,3 +46,5 @@ gem 'devise'
 
 gem 'better_errors'
 gem 'omniauth'
+
+gem 'paperclip'

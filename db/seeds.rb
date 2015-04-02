@@ -1,10 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def create_category
+  cTool = Category.new(name: 'Outils')
+  cTool.save!
+  cService = Category.new(name: 'Services')
+  cService.save!
+  cLogement = Category.new(name: 'Logements')
+  cLogement.save!
+end
 
 def create_users
   puts 'Create User gibtmirdas'
@@ -24,23 +25,35 @@ def create_offres
   puts 'Create Offre 1 => gibtmirdas'
   id_thomas = User.find_by_username('gibtmirdas').id
   offre_thomas = Offre.new(:user_id => id_thomas, :title => 'Offre 1', :descr => 'Description de l\'offre', :price => 0)
+  offre_thomas.image = File.open('app/assets/images/perso/1024px-Drill2.jpeg', )
+  offre_thomas.category = Category.find_by_name('Outils')
   offre_thomas.save!
 
   puts 'Create Offre 2 => aldazj'
   id_aldazj = User.find_by_username('aldazj').id
   offre_aldazj = Offre.new(:user_id => id_aldazj, :title => 'Offre 2', :descr => 'Description de l\'offre', :price => 10)
+  offre_aldazj.image = File.open('app/assets/images/perso/power-drill-152897_1280.png')
+  offre_aldazj.category = Category.find_by_name('Outils')
   offre_aldazj.save!
 
   puts 'Create Offre 3 => aldazj'
   id_aldazj = User.find_by_username('aldazj').id
   offre_aldazj2 = Offre.new(:user_id => id_aldazj, :title => 'Offre 3', :descr => 'Description de l\'offre', :price => 0)
+  offre_aldazj2.image = File.open('app/assets/images/perso/tondeuse-tractee.jpeg')
+  offre_aldazj2.category = Category.find_by_name('Services')
   offre_aldazj2.save!
 
   puts 'Create Offre 4 => edison'
   id_edison = User.find_by_username('edison').id
   offre_edison = Offre.new(:user_id => id_edison, :title => 'Offre 4', :descr => 'Description de l\'offre', :price => 2)
+  offre_edison.image = File.open('app/assets/images/perso/power-drill-154903_1280.png')
+  offre_edison.category = Category.find_by_name('Logements')
   offre_edison.save!
 end
 
+#mandatory
+create_category
+
+#testing
 create_users
 create_offres

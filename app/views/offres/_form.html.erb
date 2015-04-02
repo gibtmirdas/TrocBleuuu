@@ -1,29 +1,72 @@
-<%= form_for(@offre) do |f| %>
-  <% if @offre.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@offre.errors.count, "error") %> prohibited this offre from being saved:</h2>
+<%= form_for(@offre, :url => offres_path, :html => {:multipart => true}) do |f| %>
+    <div class="row">
+      <div class="col-md-4">
+        <% if @offre.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@offre.errors.count, "error") %> prohibited this offre from being saved:</h2>
+              <ul>
+                <% @offre.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-      <ul>
-      <% @offre.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <div class="field">
+          <%= f.label :title %>
+          <br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field">
+          <%= f.label :descr %>
+          <br>
+          <%= f.text_area :descr %>
+        </div>
+        <div class="field">
+          <%= f.label :price %>
+          <br>
+          <%= f.number_field :price %>
+        </div>
+
+        <div class="field">
+          <%= f.label :categorys %>
+          <br>
+          <%= f.collection_select(:category_id, @categories, :id, :name, :include_blank => "Please select") %>
+        </div>
+
+
+
+      </div>
+      <div class="col-md-4">
+        <input type="file" class="btn btn-info2 btn-file" id='offre_image' name='offre[image]' />
+        <br/>
+        <img id="image_offre" src="../assets/perso/empty_tool.png" alt="Offer image" width="200px"/>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="actions">
+            <%= f.submit class:'btn btn-success' %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :descr %><br>
-    <%= f.text_area :descr %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+
+<script>
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image_offre').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#offre_image").change(function(){
+        readURL(this);
+    });
+</script>
