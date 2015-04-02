@@ -5,28 +5,27 @@
   <div class="col-md-1">&NonBreakingSpace;</div>
   <div class="col-md-6">
     <h3>Les offres près de chez moi !</h3>
+
     <div class='search-offre'>
       <div class="input-group">
         <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-zoom-in"></span></span>
         <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
       </div>
       <%= form_tag offres_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Search", :name => nil %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
       <% end %>
     </div>
 
     <table class='offer-container table'>
       <% if flash[:notice] %>
-        <p id="notice"><%= flash[:notice] %></p>
+          <p id="notice"><%= flash[:notice] %></p>
       <% end %>
       <tbody class='offre-home'>
       <% if !@offres.empty? %>
-        <% @offres.each do |offre| %>
-            <tr><td>
-              <%= render 'offres/offre_home', :offre => offre %></td>
-            </tr>
-        <% end %>
+          <% @offres.each do |offre| %>
+              <%= render 'offres/offre_home', :offre => offre %>
+          <% end %>
       <% end %>
       </tbody>
     </table>
@@ -34,27 +33,27 @@
 
   <div class="col-md-4">
     <div class="space-30"></div>
-      <div class="col-md-offset-1">
-        <div id="with_kml" ></div>
-      </div>
+    <div class="col-md-offset-1">
+      <div id="with_kml"></div>
     </div>
   </div>
-  <!--<div class="col-md-4"><!%= link_to 'New Offre', new_offre_path, :class => 'btn btn-success btn-lg' %></div>-->
+</div>
+<!--<div class="col-md-4"><!%= link_to 'New Offre', new_offre_path, :class => 'btn btn-success btn-lg' %></div>-->
 </div>
 
 <script>
-  $(function(){
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'with_kml'}}, function(){
-      var kmls = handler.addKml(
-              { url: "http://zyklon696.blogdns.com:9091/GEO_GIREC.kmz"
-              }
-      );
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(8);
-      handler.callback();
+    $(function () {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'with_kml'}}, function () {
+            var kmls = handler.addKml(
+                    { url: "GEO_GIREC.kmz"
+                    }
+            );
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(8);
+            handler.callback();
+        });
     });
-  });
 </script>

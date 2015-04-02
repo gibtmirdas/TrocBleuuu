@@ -74,6 +74,6 @@ class OffresController < ApplicationController
   end
 
   def offre_params
-    params.require(:offre).permit(:title, :descr, :price, :image, :category, :longitude, :latitude, :address)
+    params.require(:offre).permit(:title, :descr, :price, :image, :category, :longitude, :latitude, :address, :category_id)
   end
 end

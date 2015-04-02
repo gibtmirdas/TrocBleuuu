@@ -1,6 +1,10 @@
-<tr>
+<tr onclick=''>
   <td>
-    <%= image_tag(offre.image.url, height: 50) if offre.image? %>
+    <% if offre.image? %>
+        <%= image_tag(offre.image.url, height: 50) %>
+    <% else %>
+        <%= image_tag('perso/empty_tool.png', height: 50) %>
+    <% end %>
   </td>
   <td>
     <b><%= offre.title %></b><br/> <%= offre.descr %>
@@ -9,6 +13,9 @@
     <%- if offre.price == 0 %> Gratuit
         <% else %><%= offre.price %> CHF
     <% end -%></td>
+  <td>
+    <%= offre.category.name %>
+  </td>
   <td align="right">
     <% if offre.user_id == current_user.id %>
         <%= link_to 'Modifier mon offre', offre, :class => 'btn btn-info' %>

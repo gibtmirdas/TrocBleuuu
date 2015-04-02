@@ -62,4 +62,4 @@ gem 'jquery-turbolinks'
 #Border Patrol
 gem 'border_patrol'
 
-gem 'paperclip'
+gem 'paperclip', '~> 3.5.3'
