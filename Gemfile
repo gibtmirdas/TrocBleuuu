@@ -46,3 +46,18 @@ gem 'devise'
 
 gem 'better_errors'
 gem 'omniauth'
+
+#GMAPS
+gem 'gmaps4rails'
+
+#Underscore-rails
+gem 'underscore-rails'
+
+#Geocode
+gem 'geocoder'
+
+# jquery-turbolinks
+gem 'jquery-turbolinks'
+
+#Border Patrol
+gem 'border_patrol'
