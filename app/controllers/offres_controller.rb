@@ -1,11 +1,34 @@
+require 'border_patrol'
+
 class OffresController < ApplicationController
   before_action :set_offre, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, :prepare_categories
   respond_to :html
 
   def index
-    @offres = Offre.search(params[:search])
-    respond_with(@offres)
+    ratio = 2
+    if(params[:search].present?)
+      @offres = Offre.search(params[:search])
+      if(@offres.empty?)
+        respond_to do |format|
+          format.html{redirect_to offres_path, notice: 'Pas de résultats' }
+        end
+      end
+    else
+      @offres = Offre.all
+    end
+
+    @hash = Gmaps4rails.build_markers(@offres) do |offre, marker|
+      marker.lat offre.latitude
+      marker.lng offre.longitude
+      marker.picture({
+                       "url" => "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+                       "width" =>  36,
+                       "height" => 36})
+      marker.infowindow render_to_string(:partial => "/offres/offre", :locals => {:offre => offre})
+      marker.json({:descr => offre.descr})
+    end
+    #respond_with(@offres, @hash)
   end
 
   def show

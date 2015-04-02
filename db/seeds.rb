@@ -9,16 +9,32 @@ end
 
 def create_users
   puts 'Create User gibtmirdas'
-  thomas = User.new(:firstname => 'Thomas', :lastname => 'Bertrand', :email => 't.bertrand@outlook.com', :username => 'gibtmirdas', :password => 'asdasdasd', :street => '72, Rue de la tambourine', :npa => '1227', :commune => 'Carouge', :phone => '079 821 51 95')
+  thomas = User.new(:firstname => 'Thomas', :lastname => 'Bertrand', :email => 't.bertrand@outlook.com',
+                    :username => 'gibtmirdas', :password => 'asdasdasd',
+                    :address => 'Rue de la tambourine 72', :npa => '1227', :commune => 'Carouge', :phone =>
+                        '079 821 51 95',:latitude => 46.1746, :longitude => 6.14205 )
   thomas.save!
 
   puts 'Create User aldazj'
-  jayro = User.new(:firstname => 'Jayro', :lastname => 'Aldaz', :email => 'jayroaldaz@hotmail.com', :username => 'aldazj', :password => 'opengeneva', :street => '29, Chemin des Deux-Communes', :npa => '1226', :commune => 'Thônex', :phone => '076 482 26 18')
+  jayro = User.new(:firstname => 'Jayro', :lastname => 'Aldaz', :email => 'jayroaldaz@hotmail.com',
+                   :username => 'aldazj', :password => 'opengeneva', :address => 'Chemin des Deux-Communes 29',
+                   :npa => '1226', :commune => 'Thônex', :phone => '076 482 26 18',
+                   :latitude => 46.1938, :longitude => 6.2025)
   jayro.save!
 
   puts 'Create User edison'
-  edison = User.new(:firstname => 'Edison', :lastname => 'Aldaz', :email => 'edisonaldaz@hotmail.com', :username => 'edison', :password => 'opengeneva', :street => '29, Chemin des Deux-Communes', :npa => '1226', :commune => 'Thônex', :phone => '076 482 26 18')
+  edison = User.new(:firstname => 'Edison', :lastname => 'Aldaz', :email => 'edisonaldaz@hotmail.com',
+                    :username => 'edison', :password => 'opengeneva', :address => 'Rue des mouettes 15',
+                    :npa => '1227', :commune => 'Carouge', :phone => '076 482 26 18',
+                    :latitude => 46.1888, :longitude => 6.13937)
   edison.save!
+
+  puts 'Create User jenny'
+  jenny = User.new(:firstname => 'Jenny', :lastname => 'Clerc', :email => 'jennyclerc@hotmail.com',
+                    :username => 'clercj0', :password => 'opengeneva', :address => 'Bernex en combes 19',
+                    :npa => '1233', :commune => 'Bernex', :phone => '076 482 26 18',
+                    :latitude => 46.1793, :longitude => 6.0798)
+  jenny.save!
 end
 
 def create_offres

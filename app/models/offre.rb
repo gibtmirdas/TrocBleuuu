@@ -1,10 +1,17 @@
 class Offre < ActiveRecord::Base
   belongs_to :user
-  belongs_to :category
 
-
-  # validates user
   validates :user_id, :presence => true
+
+  #Geocode
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
+
+  def address=(val)
+    update_address = val+", Swiss"
+    write_attribute(:address, update_address)
+  end
+
 
   # validates image
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },  :default_url => "/images/:style/missing.png"
