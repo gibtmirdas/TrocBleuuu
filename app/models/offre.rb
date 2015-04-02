@@ -1,5 +1,6 @@
 class Offre < ActiveRecord::Base
   belongs_to :user
+  belongs_to :category
 
   validates :user_id, :presence => true
 
@@ -7,9 +8,21 @@ class Offre < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
-  def address=(val)
-    update_address = val+", Swiss"
-    write_attribute(:address, update_address)
+  # get address from user
+  def address
+    user.address
+  end
+
+  def address_changed?
+    user.address_changed?
+  end
+
+  def longitude
+    user.longitude
+  end
+
+  def latitude
+    user.latitude
   end
 
 

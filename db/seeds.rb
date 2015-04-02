@@ -9,31 +9,63 @@ end
 
 def create_users
   puts 'Create User gibtmirdas'
-  thomas = User.new(:firstname => 'Thomas', :lastname => 'Bertrand', :email => 't.bertrand@outlook.com',
-                    :username => 'gibtmirdas', :password => 'asdasdasd',
-                    :address => 'Rue de la tambourine 72', :npa => '1227', :commune => 'Carouge', :phone =>
-                        '079 821 51 95',:latitude => 46.1746, :longitude => 6.14205 )
+  thomas = User.new(
+    :firstname => 'Thomas',
+    :lastname => 'Bertrand',
+    :email => 't.bertrand@outlook.com',
+    :username => 'gibtmirdas',
+    :password => 'asdasdasd',
+    :address => 'Rue de la tambourine 72',
+    :npa => '1227',
+    :commune => 'Carouge',
+    :phone => '079 821 51 95',
+    :latitude => 46.1746,
+    :longitude => 6.14205)
   thomas.save!
 
   puts 'Create User aldazj'
-  jayro = User.new(:firstname => 'Jayro', :lastname => 'Aldaz', :email => 'jayroaldaz@hotmail.com',
-                   :username => 'aldazj', :password => 'opengeneva', :address => 'Chemin des Deux-Communes 29',
-                   :npa => '1226', :commune => 'Thônex', :phone => '076 482 26 18',
-                   :latitude => 46.1938, :longitude => 6.2025)
+  jayro = User.new(
+    :firstname => 'Jayro',
+    :lastname => 'Aldaz',
+    :email => 'jayroaldaz@hotmail.com',
+    :username => 'aldazj',
+    :password => 'opengeneva',
+    :address => 'Chemin des Deux-Communes 29',
+    :npa => '1226',
+    :commune => 'Thônex',
+    :phone => '076 482 26 18',
+    :latitude => 46.1938,
+    :longitude => 6.2025)
   jayro.save!
 
   puts 'Create User edison'
-  edison = User.new(:firstname => 'Edison', :lastname => 'Aldaz', :email => 'edisonaldaz@hotmail.com',
-                    :username => 'edison', :password => 'opengeneva', :address => 'Rue des mouettes 15',
-                    :npa => '1227', :commune => 'Carouge', :phone => '076 482 26 18',
-                    :latitude => 46.1888, :longitude => 6.13937)
+  edison = User.new(
+    :firstname => 'Edison',
+    :lastname => 'Aldaz',
+    :email => 'edisonaldaz@hotmail.com',
+    :username => 'edison',
+    :password => 'opengeneva',
+    :address => 'Rue des mouettes 15',
+    :npa => '1227',
+    :commune => 'Carouge',
+    :phone => '076 482 26 18',
+    :latitude => 46.1888,
+    :longitude => 6.13937)
   edison.save!
 
   puts 'Create User jenny'
-  jenny = User.new(:firstname => 'Jenny', :lastname => 'Clerc', :email => 'jennyclerc@hotmail.com',
-                    :username => 'clercj0', :password => 'opengeneva', :address => 'Bernex en combes 19',
-                    :npa => '1233', :commune => 'Bernex', :phone => '076 482 26 18',
-                    :latitude => 46.1793, :longitude => 6.0798)
+  jenny = User.new(
+    :firstname => 'Jenny',
+    :lastname => 'Clerc',
+    :email => 'jennyclerc@hotmail.com',
+    :username => 'clercj0',
+    :password => 'opengeneva',
+    :address => 'Bernex en combes 19',
+    :npa => '1233',
+    :commune => 'Bernex',
+    :phone => '076 482 26 18',
+    :latitude => 46.1793,
+    :longitude => 6.0798)
   jenny.save!
 end
 
@@ -41,7 +73,7 @@ def create_offres
   puts 'Create Offre 1 => gibtmirdas'
   id_thomas = User.find_by_username('gibtmirdas').id
   offre_thomas = Offre.new(:user_id => id_thomas, :title => 'Offre 1', :descr => 'Description de l\'offre', :price => 0)
-  offre_thomas.image = File.open('app/assets/images/perso/1024px-Drill2.jpeg', )
+  offre_thomas.image = File.open('app/assets/images/perso/1024px-Drill2.jpeg',)
   offre_thomas.category = Category.find_by_name('Outils')
   offre_thomas.save!
 

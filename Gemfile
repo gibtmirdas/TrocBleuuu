@@ -60,6 +60,6 @@ gem 'geocoder'
 gem 'jquery-turbolinks'
 
 #Border Patrol
-gem 'border_patrol'gem 'omniauth'
+gem 'border_patrol'
 
 gem 'paperclip'

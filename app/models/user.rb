@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
-  def address=(val)
-    update_address = val+", Swiss"
+  def address
+    update_address = [street, npa, commune, 'Suisse'].compact.join(', ')
     write_attribute(:address, update_address)
   end
 
