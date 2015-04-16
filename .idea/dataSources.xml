@@ -5,8 +5,6 @@
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/TrocBleuuu_development</jdbc-url>
-      <user-name>troc</user-name>
-      <user-password>dffedfd8dfc5dfc9dffedfd8dfc5dfc9</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails TrocBleuuu: test" uuid="e04d5a6a-4248-4514-9f63-4a7bcd939665">
@@ -23,4 +21,3 @@
     </data-source>
   </component>
 </project>
-

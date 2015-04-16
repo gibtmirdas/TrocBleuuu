@@ -20,7 +20,7 @@
 font-family: 'Glyphicons Halflings';
 src: url('/assets/fonts/glyphicons-halflings-regular.eot');
 src: url('/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-} */
+}
 
 #with_kml{
     position: absolute;
