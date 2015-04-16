@@ -10,7 +10,7 @@
         <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-zoom-in"></span></span>
         <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
       </div>
-      <%= form_tag offres_path, :method => 'get' do %>
+      <%= form_tag offres_path, :method => 'get' ,:id => 'offres_search' do %>
             <%= text_field_tag :search, params[:search] %>
             <%= submit_tag "Search", :name => nil %>
       <% end %>

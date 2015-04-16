@@ -6,7 +6,7 @@ class OffresController < ApplicationController
   respond_to :html
 
   def index
-    ratio = 2
+    ratio = 4
     if(params[:search].present?)
       @offres = Offre.search(params[:search])
       if(@offres.empty?)
