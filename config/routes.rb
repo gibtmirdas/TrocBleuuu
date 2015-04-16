@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :categories
+
+  get 'category/new'
+
+  resources :contrats
+
   resources :offres
   # resources :users
   # devise_for :users, skip: [:sessions, :registrations], :controllers => {

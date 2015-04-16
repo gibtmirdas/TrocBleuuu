@@ -2,29 +2,50 @@
 <html>
 <head>
   <title>TrocBleuuu</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<!--<body>-->
+<!--<div id="wrapper">-->
+<!--<div id="header"><!%= render 'layouts/header' %></div>-->
+<!--<!%if current_user%>-->
+<!--<div id="content-logged">-->
+<!--<div id="content-spacer-top"></div>-->
+<!--<div id="content-inner">-->
+<!--<!%= yield %>-->
+<!--</div>-->
+<!--</div>-->
+<!--<!% else %>-->
+<!--<div id="content-home">-->
+<!--<div id="content-spacer-top"></div>-->
+<!--<div id="content-inner">-->
+<!--<!%= yield %>-->
+<!--</div>-->
+<!--</div>-->
+<!--<!%end %>-->
+<!--<div id="divFooter"><!%= render 'layouts/footer' %></div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
 <body>
-    <div id="wrapper">
-      <div id="header"><%= render 'layouts/header' %></div>
-      <%if current_user%>
-          <div id="content-logged">
-            <div id="content-spacer-top"></div>
-            <div id="content-inner">
-              <%= yield %>
-            </div>
-          </div>
-      <% else %>
-          <div id="content-home">
-            <div id="content-spacer-top"></div>
-            <div id="content-inner">
-              <%= yield %>
-            </div>
-          </div>
-      <%end %>
-      <div id="divFooter"><%= render 'layouts/footer' %></div>
+<header><%= render 'layouts/header' %></header>
+<% if current_user %>
+    <div id="wrap-logged">
+      <div id="main" class="clearfix">
+        <%= yield %>
+      </div>
     </div>
+<% else %>
+    <div id="wrap-home">
+      <div id="main" class="clearfix">
+        <%= yield %>
+      </div>
+    </div>
+<% end %>
+<footer>
+  <%= render 'layouts/footer' %>
+</footer>
 </body>
 </html>

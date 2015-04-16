@@ -16,17 +16,15 @@
       <% end %>
     </div>
 
-    <table class='offer-container'>
+    <table class='offer-container table'>
       <% if flash[:notice] %>
-        <p id="notice"><%= flash[:notice] %></p>
+          <p id="notice"><%= flash[:notice] %></p>
       <% end %>
-      <tbody>
+      <tbody class='offre-home'>
       <% if !@offres.empty? %>
-        <% @offres.each do |offre| %>
-            <tr><td>
-              <%= render 'offres/offre_home', :offre => offre %></td>
-            </tr>
-        <% end %>
+          <% @offres.each do |offre| %>
+              <%= render 'offres/offre_home', :offre => offre %>
+          <% end %>
       <% end %>
       </tbody>
     </table>

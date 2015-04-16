@@ -1,12 +1,26 @@
-<table class='offre-home'>
-  <tr>
-    <td>
-      <%= image_tag('perso/200px-Secateur_ouvert.jpeg', height: 50) %>
-    </td>
-    <td>
-      <b><%= offre.title %></b><br/> <%= offre.descr %>
-    </td>
-    <td><%- if offre.price == 0 %> Gratuit <% else  %><%= offre.price %> CHF <% end -%></td>
-    <td align="right"><%= link_to 'Consulter', offre, :class => 'btn btn-success' %></td>
-  </tr>
-</table>
+<tr onclick=''>
+  <td>
+    <% if offre.image? %>
+        <%= image_tag(offre.image.url, height: 50) %>
+    <% else %>
+        <%= image_tag('perso/empty_tool.png', height: 50) %>
+    <% end %>
+  </td>
+  <td>
+    <b><%= offre.title %></b><br/> <%= offre.descr %>
+  </td>
+  <td>
+    <%- if offre.price == 0 %> Gratuit
+        <% else %><%= offre.price %> CHF
+    <% end -%></td>
+  <td>
+    <%= offre.category.name %>
+  </td>
+  <td align="right">
+    <% if offre.user_id == current_user.id %>
+        <%= link_to 'Modifier mon offre', offre, :class => 'btn btn-info' %>
+    <% else %>
+        <%= link_to 'Consulter', offre, :class => 'btn btn-success' %>
+    <% end %>
+  </td>
+</tr>
