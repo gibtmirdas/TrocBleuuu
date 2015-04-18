@@ -22,11 +22,12 @@ class OffresController < ApplicationController
       marker.lat offre.latitude
       marker.lng offre.longitude
       marker.picture({
-                       "url" => "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+                       # "url" => "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
                        "width" =>  36,
                        "height" => 36})
       marker.infowindow render_to_string(:partial => "/offres/offre", :locals => {:offre => offre})
-      marker.json({:descr => offre.descr})
+      marker.json({:descr => offre.descr,strokeWeight: 6.0})
+
     end
     #respond_with(@offres, @hash)
   end

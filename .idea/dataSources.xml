@@ -5,19 +5,26 @@
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/TrocBleuuu_development</jdbc-url>
+      <user-name>troc</user-name>
+      <user-password>dffedfd8dfc5dfc9dffedfd8dfc5dfc9</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails TrocBleuuu: test" uuid="e04d5a6a-4248-4514-9f63-4a7bcd939665">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/TrocBleuuu_test</jdbc-url>
+      <user-name>troc</user-name>
+      <user-password>dffedfd8dfc5dfc9dffedfd8dfc5dfc9</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails TrocBleuuu: production" uuid="1dc73b75-b117-4b41-b5d5-75c36c670db0">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/TrocBleuuu_production</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedff8dfe5dfe9dfe8dfe6dfefdfffdfffdfffdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
   </component>
 </project>
+

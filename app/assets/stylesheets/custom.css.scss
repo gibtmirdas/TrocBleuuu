@@ -126,6 +126,14 @@ html, body {height: 100%;overflow-x: hidden;}
   background: image_url('perso/EU-Bucketlist-Cover-Photo.jpeg') no-repeat center ;
 }
 
+#wrap-logged {
+  position:relative;
+  overflow:hidden;
+  height: 400px;
+  min-height: 400px;
+  background: image_url('perso/EU-Bucketlist-Cover-Photo_white.jpeg') no-repeat center ;
+}
+
 #wrap-logged {min-height: 80%}
 
 #main {
